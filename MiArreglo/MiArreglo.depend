@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1469067898 source:c:\users\luis\desktop\estructura\miarreglo\main.cpp
+1469150612 source:c:\users\luis\desktop\estructura\miarreglo\main.cpp
 	<iostream>
 	"MiArreglo.h"
 
-1469067649 source:c:\users\luis\desktop\estructura\miarreglo\miarreglo.cpp
+1469144747 source:c:\users\luis\desktop\estructura\miarreglo\miarreglo.cpp
 	"MiArreglo.h"
 
-1469067657 c:\users\luis\desktop\estructura\miarreglo\miarreglo.h
+1469144290 c:\users\luis\desktop\estructura\miarreglo\miarreglo.h
 	<iostream>
 

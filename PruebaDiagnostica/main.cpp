@@ -4,25 +4,28 @@ using namespace std;
 
 //Ejercicio 1
 
-//void ordenarArreglo(int arreglo[]){
-//    int tamanio = 10, temporal;
-//    int ordenado[tamanio];
-//    for(int i = 0;i < tamanio; i++){
-//        for(int j = 0; j < tamanio-1; j++){
-//            if(ordenado > arreglo[j+1]){
-//                temporal = ordenado;
-//                arreglo=ordenado[i+1];
-//                ordenado[j+1] = temporal;
-//            }
-//        }
-//    }
-//}
+int ordenar(int arreglo[], int array_size)
+{
+    int t, r, a;
+
+    for(t = 0; t < array_size; t++)
+    {
+        for( r = 0; r < array_size-1; r++)
+        {
+            if(arreglo[r] > arreglo[r+1])
+            {
+                a = arreglo[r];
+                arreglo[r] = arreglo[r+1];
+                arreglo[r+1] = a;
+            }
+        }
+    }
+    return 0;
+}
 
 //Ejercicio 2
 
-bool busquedaIterativa(int arreglo[], int num){
-    int tamanio = 10;
-    arreglo[tamanio];
+bool busquedaIterativa(int arreglo[], int num, int tamanio){
 
     for(int c = 0; c < tamanio; c++){
         if(num == arreglo[c]){
@@ -34,15 +37,13 @@ bool busquedaIterativa(int arreglo[], int num){
 
 //Ejercicio 3
 
-bool busquedaRecursiva(int arreglo[], int num, int acumular){
-    int tamanio = 10;
-    arreglo[tamanio];
+bool busquedaRecursiva(int arreglo[], int num, int acumular, int tamanio){
 
     if(acumular < tamanio){
         if(arreglo[acumular]==num){
             return true;
         }
-        return busquedaRecursiva(arreglo,num, acumular+1);
+        return busquedaRecursiva(arreglo,num, acumular+1, tamanio);
     }
     return false;
 }
@@ -63,26 +64,33 @@ int simularCiclo(int inicio, int incremento, int fin)
 
 //Ejercicio 5
 
-int inicializar(int a){
-    a = 100;
-    return a;
+int inicializar(int* a){
+    int n = 100;
+    a = &n;
+    return *a;
 }
 
 //Ejercicio 6
 
 int subFn(int n1, int n2){
-
+    n1 = 2;
+    n2 = 4;
+    return n1, n2;
 }
 
-int llamarSubFn(int* ptr, int n1, int n2){
-    *ptr = subFn(n1, n2);
-    return *ptr;
+int llamarSubFn(int (*ptr) (int, int), int n1, int n2){
+
 }
 
 
 int main()
 {
-    simularCiclo(1,0,10);
-    cout << inicializar(2) << endl;
+    int (*fptr)(int,int);
+    fptr = subFn;
+    llamarSubFn(fptr,4,5);
+    cout<<fptr(2,1)<<endl;
+    int num = 5;
+    simularCiclo(1,1,10);
+    cout << inicializar(&num) << endl;
     return 0;
 }
