@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1473375045 source:c:\users\luis\desktop\estructura\grafos\main.cpp
+	<iostream>
+	"Nodo.h"
+
+1473207126 source:c:\users\luis\desktop\estructura\grafos\nodo.cpp
+	"Nodo.h"
+
+1473207090 c:\users\luis\desktop\estructura\grafos\nodo.h
+	<iostream>
+
+1473207595 source:c:\users\luis\desktop\estructura\grafos\arista.cpp
+	"Arista.h"
+
+1473207562 c:\users\luis\desktop\estructura\grafos\arista.h
+	<iostream>
+	"Nodo.h"
+
+1473376735 source:c:\users\luis\desktop\estructura\grafos\grafo.cpp
+	"Grafo.h"
+
+1473376817 c:\users\luis\desktop\estructura\grafos\grafo.h
+	<climits>
+

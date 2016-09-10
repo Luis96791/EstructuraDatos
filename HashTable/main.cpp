@@ -22,23 +22,24 @@ int main()
     tablaHash->agregarItem("Marlon","Samsung S6");
     tablaHash->agregarItem("Sergio","Samsung S6E");
 
-    tablaHash->imprimirTabla();
 
-    item = tablaHash->buscarItem("Sergio");
-
-    cout<<"Nombre: "<<item->nombre<<endl;
-    cout<<"Modelo: "<<item->modelo<<endl;
-
-
-    while(true)
-    {
-        cout<<"A eliminar: ";
-        cin>>index;
-        char* index1 = index;
-        tablaHash->eliminarItem(index1);
-        tablaHash->imprimirTabla();
-
-    }
+//    tablaHash->imprimirTabla();
+//
+//    item = tablaHash->buscarItem("Sergio");
+//
+//    cout<<"Nombre: "<<item->nombre<<endl;
+//    cout<<"Modelo: "<<item->modelo<<endl;
+//
+//
+//    while(true)
+//    {
+//        cout<<"A eliminar: ";
+//        cin>>index;
+//        char* index1 = index;
+//        tablaHash->eliminarItem(index1);
+//        tablaHash->imprimirTabla();
+//
+//    }
 
     return 0;
 }

@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1446667744 source:c:\users\luis\desktop\estructura\grafodijkstra\main.cpp
+	<iostream>
+
+1473385549 source:c:\users\luis\desktop\estructura\grafodijkstra\grafodijkstra.cpp
+	"GrafoDijkstra.h"
+
+1473385933 c:\users\luis\desktop\estructura\grafodijkstra\grafodijkstra.h
+	<iostream>
+	<climits>
+	<queue>
+

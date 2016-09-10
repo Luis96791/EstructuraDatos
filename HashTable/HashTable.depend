@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1472427664 source:c:\users\luis\desktop\estructura\hashtable\main.cpp
+1472529516 source:c:\users\luis\desktop\estructura\hashtable\main.cpp
 	<iostream>
 	<stdio.h>
 	"TablaHash.h"
+	"Item.h"
 
-1472427785 source:c:\users\luis\desktop\estructura\hashtable\tablahash.cpp
+1472527603 source:c:\users\luis\desktop\estructura\hashtable\tablahash.cpp
 	"TablaHash.h"
 
-1472427748 c:\users\luis\desktop\estructura\hashtable\tablahash.h
+1472529505 c:\users\luis\desktop\estructura\hashtable\tablahash.h
 	"Item.h"
 	<iostream>
 

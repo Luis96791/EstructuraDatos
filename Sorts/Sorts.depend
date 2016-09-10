@@ -2,3 +2,21 @@
 1468982168 source:c:\users\luis\desktop\examen\sorts\main.cpp
 	<iostream>
 
+1473470101 source:c:\users\luis\desktop\estructura\sorts\main.cpp
+	<iostream>
+	"HeapSort.h"
+	"Nodo.h"
+
+1473464406 source:c:\users\luis\desktop\estructura\sorts\heapsort.cpp
+	"HeapSort.h"
+
+1473463999 c:\users\luis\desktop\estructura\sorts\heapsort.h
+	"Nodo.h"
+	<iostream>
+
+1473463042 c:\users\luis\desktop\estructura\sorts\nodo.h
+	<iostream>
+
+1473463047 source:c:\users\luis\desktop\estructura\sorts\nodo.cpp
+	"Nodo.h"
+
