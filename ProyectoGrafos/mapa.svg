@@ -26,11 +26,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="-1671.5424"
-     inkscape:cy="-588.88159"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-216.2758"
+     inkscape:cy="-177.13343"
      inkscape:document-units="px"
-     inkscape:current-layer="g4243"
+     inkscape:current-layer="g4498"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1304"
@@ -399,6 +399,46 @@
                        id="rect4225" /></flowRegion><flowPara
                      style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#ffffff"
                      id="flowPara4227">Nueva Ruta</flowPara></flowRoot>              </g>
+              <g
+                 transform="translate(0.91951803,-66.766992)"
+                 id="g4515-6"
+                 inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\nueva_ruta.png"
+                 inkscape:export-xdpi="90"
+                 inkscape:export-ydpi="90">
+                <g
+                   id="g4303"
+                   transform="translate(-1.5152288,0.50507627)"
+                   inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\consultar_ruta.png"
+                   inkscape:export-xdpi="90"
+                   inkscape:export-ydpi="90">
+                  <rect
+                     inkscape:export-ydpi="90"
+                     inkscape:export-xdpi="90"
+                     inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\nueva_ruta.png"
+                     style="opacity:0.95999995;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                     id="rect4219-0"
+                     width="167.68532"
+                     height="56.568542"
+                     x="-37.79887"
+                     y="1940.2812"
+                     ry="28.284271" />
+                  <flowRoot
+                     inkscape:export-ydpi="90"
+                     inkscape:export-xdpi="90"
+                     inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\nueva_ruta.png"
+                     xml:space="preserve"
+                     id="flowRoot4221-7"
+                     style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                     transform="matrix(0.72574068,0,0,1,1054.6628,110.10152)"><flowRegion
+                       id="flowRegion4223-9"><rect
+                         id="rect4225-6"
+                         width="219.39519"
+                         height="40.06126"
+                         x="-1495"
+                         y="1839.505" /></flowRegion><flowPara
+                       id="flowPara4227-2"
+                       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#ffffff">Consultar Ruta</flowPara></flowRoot>                </g>
+              </g>
             </g>
             <g
                id="g4281"
@@ -481,7 +521,8 @@
             <g
                id="g4497"
                inkscape:export-xdpi="90"
-               inkscape:export-ydpi="90">
+               inkscape:export-ydpi="90"
+               transform="translate(30,7.1428571)">
               <rect
                  inkscape:export-ydpi="90"
                  inkscape:export-xdpi="90"
@@ -549,6 +590,222 @@
                  width="263.67169"
                  id="rect4289-78"
                  style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.97812843;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              <g
+                 id="g4430"
+                 inkscape:export-xdpi="90"
+                 inkscape:export-ydpi="90">
+                <rect
+                   inkscape:export-ydpi="90"
+                   inkscape:export-xdpi="90"
+                   ry="0"
+                   y="1121.033"
+                   x="1524.4475"
+                   height="300"
+                   width="400"
+                   id="rect4271"
+                   style="opacity:0.95999995;fill:#37caab;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.26555276;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1"
+                   transform="translate(-3.6e-5,-5e-6)" />
+                <rect
+                   style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.97812843;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                   id="rect4289-0"
+                   width="263.67169"
+                   height="44.468586"
+                   x="1556.774"
+                   y="1179.7095"
+                   ry="14.31194"
+                   inkscape:export-xdpi="90"
+                   inkscape:export-ydpi="90" />
+                <flowRoot
+                   transform="translate(1697.5526,311.5301)"
+                   style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                   id="flowRoot4325"
+                   xml:space="preserve"
+                   inkscape:export-xdpi="90"
+                   inkscape:export-ydpi="90"><flowRegion
+                     id="flowRegion4327"><rect
+                       y="829.11847"
+                       x="-152.53304"
+                       height="40.406101"
+                       width="233.34523"
+                       id="rect4329" /></flowRegion><flowPara
+                     id="flowPara4331">Ingrese Punto 1:</flowPara></flowRoot>                <flowRoot
+                   transform="translate(1699.8559,398.28109)"
+                   style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                   id="flowRoot4325-8"
+                   xml:space="preserve"
+                   inkscape:export-xdpi="90"
+                   inkscape:export-ydpi="90"><flowRegion
+                     id="flowRegion4327-5"><rect
+                       y="829.11847"
+                       x="-152.53304"
+                       height="40.406101"
+                       width="233.34523"
+                       id="rect4329-8" /></flowRegion><flowPara
+                     id="flowPara4331-7">Ingrese Punto 2:</flowPara></flowRoot>                <g
+                   id="g4454"
+                   transform="translate(142.85714,188.57143)">
+                  <g
+                     id="g4498">
+                    <g
+                       id="g4505"
+                       transform="translate(-154.55334,-208.09142)"
+                       inkscape:export-xdpi="90"
+                       inkscape:export-ydpi="90">
+                      <rect
+                         ry="39.278641"
+                         y="1336.7493"
+                         x="1101.8384"
+                         height="162.85715"
+                         width="322.85715"
+                         id="rect4442"
+                         style="opacity:0.95999995;fill:#0000ff;fill-opacity:0.96078431;fill-rule:nonzero;stroke:none;stroke-width:2.59800005;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1" />
+                      <flowRoot
+                         transform="matrix(0.87527406,0,0,1,1598.1964,304.38724)"
+                         style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                         id="flowRoot4444"
+                         xml:space="preserve"><flowRegion
+                           id="flowRegion4446"><rect
+                             style="text-align:center;text-anchor:middle"
+                             y="1050.9336"
+                             x="-557.14288"
+                             height="84.285751"
+                             width="354.8678"
+                             id="rect4448" /></flowRegion><flowPara
+                           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff"
+                           id="flowPara4450">NO existe camino entre estos dos puntos</flowPara></flowRoot>                    </g>
+                    <g
+                       id="g4505-3"
+                       transform="translate(-73.942174,-1.5023023)">
+                      <g
+                         id="g4542"
+                         inkscape:export-xdpi="90"
+                         inkscape:export-ydpi="90">
+                        <rect
+                           style="opacity:0.95999995;fill:#0000ff;fill-opacity:0.96078431;fill-rule:nonzero;stroke:none;stroke-width:2.59800005;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1"
+                           id="rect4442-5"
+                           width="322.85715"
+                           height="162.85715"
+                           x="1101.8384"
+                           y="1336.7493"
+                           ry="39.278641" />
+                        <flowRoot
+                           xml:space="preserve"
+                           id="flowRoot4444-1"
+                           style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                           transform="matrix(0.87527406,0,0,1,1598.1964,304.38724)"><flowRegion
+                             id="flowRegion4446-7"><rect
+                               id="rect4448-9"
+                               width="354.8678"
+                               height="84.285751"
+                               x="-557.14288"
+                               y="1050.9336"
+                               style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+                             id="flowPara4450-0"
+                             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff">SI hay camino entre estos dos puntos</flowPara></flowRoot>                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <rect
+                 ry="14.31194"
+                 y="1551.896"
+                 x="1851.429"
+                 height="44.468586"
+                 width="263.67169"
+                 id="rect4289-0-5"
+                 style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.97812843;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                 inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\back_ingreso2.png"
+                 inkscape:export-xdpi="90"
+                 inkscape:export-ydpi="90" />
+              <g
+                 id="g4414"
+                 transform="translate(639.42058,162.5033)"
+                 inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\consulta.png"
+                 inkscape:export-xdpi="90"
+                 inkscape:export-ydpi="90">
+                <rect
+                   ry="14.3119"
+                   y="1380.0547"
+                   x="1546.0298"
+                   height="47.477169"
+                   width="157.5838"
+                   id="rect4372"
+                   style="opacity:0.95999995;fill:#008000;fill-opacity:0.96078431;fill-rule:nonzero;stroke:none;stroke-width:2.59800005;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1" />
+                <flowRoot
+                   transform="translate(1689.4714,306.47934)"
+                   style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                   id="flowRoot4374"
+                   xml:space="preserve"><flowRegion
+                     id="flowRegion4376"><rect
+                       y="1080.6465"
+                       x="-130.30968"
+                       height="44.446651"
+                       width="140.41118"
+                       id="rect4378" /></flowRegion><flowPara
+                     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff"
+                     id="flowPara4380"><flowSpan
+   id="flowSpan4382"
+   style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic'">Consulta</flowSpan>r</flowPara></flowRoot>              </g>
+              <g
+                 id="g4422"
+                 transform="translate(431.5403,125.21176)"
+                 inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\salir_ventanaConsulta.png"
+                 inkscape:export-xdpi="90"
+                 inkscape:export-ydpi="90">
+                <rect
+                   ry="14.3119"
+                   y="1350.2552"
+                   x="1745.0297"
+                   height="47.477169"
+                   width="157.5838"
+                   id="rect4372-5"
+                   style="opacity:0.95999995;fill:#008000;fill-opacity:0.96078431;fill-rule:nonzero;stroke:none;stroke-width:2.59800005;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1" />
+                <flowRoot
+                   transform="translate(1917.7657,276.67995)"
+                   style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                   id="flowRoot4374-4"
+                   xml:space="preserve"><flowRegion
+                     id="flowRegion4376-8"><rect
+                       y="1080.6465"
+                       x="-130.30968"
+                       height="44.446651"
+                       width="140.41118"
+                       id="rect4378-6" /></flowRegion><flowPara
+                     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff"
+                     id="flowPara4380-5">Salir</flowPara></flowRoot>              </g>
+              <g
+                 id="g4422-4"
+                 transform="translate(-419.12614,267.04133)"
+                 inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\salir_ventanaConsulta.png"
+                 inkscape:export-xdpi="90"
+                 inkscape:export-ydpi="90">
+                <g
+                   id="g4491"
+                   inkscape:export-filename="C:\Users\Luis\Desktop\Estructura\ProyectoGrafos\botones\btnAceptar.png"
+                   inkscape:export-xdpi="90"
+                   inkscape:export-ydpi="90">
+                  <rect
+                     style="opacity:0.95999995;fill:#008000;fill-opacity:0.96078431;fill-rule:nonzero;stroke:none;stroke-width:2.59800005;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1"
+                     id="rect4372-5-8"
+                     width="157.5838"
+                     height="47.477169"
+                     x="1963.2227"
+                     y="1461.3721"
+                     ry="14.3119" />
+                  <flowRoot
+                     xml:space="preserve"
+                     id="flowRoot4374-4-3"
+                     style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                     transform="translate(2117.7759,384.76627)"><flowRegion
+                       id="flowRegion4376-8-7"><rect
+                         id="rect4378-6-0"
+                         width="140.41118"
+                         height="44.446651"
+                         x="-130.30968"
+                         y="1080.6465" /></flowRegion><flowPara
+                       id="flowPara4380-5-5"
+                       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff">Aceptar</flowPara></flowRoot>                </g>
+              </g>
             </g>
             <g
                id="g4281-9"

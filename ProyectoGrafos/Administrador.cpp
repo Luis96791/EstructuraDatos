@@ -15,8 +15,8 @@ char* prueba;
 void Administrador::ventanaPrincipal()
 {
 
-    sf::Texture text_fondo, txt_lateral, txt_nuevaRuta;
-    sf::Sprite back_fondo, back_lateral, back_nuevaRuta;
+    sf::Texture text_fondo, txt_lateral, txt_nuevaRuta, text_consultar;
+    sf::Sprite back_fondo, back_lateral, back_nuevaRuta, back_consultar;
 
     sf::Texture txt_puntos[23];
     sf::Sprite back_puntos[23];
@@ -34,6 +34,10 @@ void Administrador::ventanaPrincipal()
     txt_nuevaRuta.loadFromFile("botones/nueva_ruta.png");
     back_nuevaRuta.setTexture(txt_nuevaRuta);
     back_nuevaRuta.setPosition(1105,60);
+
+    text_consultar.loadFromFile("botones/consultar_ruta.png");
+    back_consultar.setTexture(text_consultar);
+    back_consultar.setPosition(1105,130);
 
     ruta->llenarPuntos();
     ruta->setAdyacencias();
@@ -62,9 +66,15 @@ void Administrador::ventanaPrincipal()
             crearRuta();
         }
 
+        if(utility->clickSprite(back_consultar,mouse))
+        {
+            ventanaConsultarCaminos();
+        }
+
         window.draw(back_fondo);
         window.draw(back_lateral);
         window.draw(back_nuevaRuta);
+        window.draw(back_consultar);
         dibujarPuntos(txt_puntos, back_puntos);
         drawLineas();
         window.display();
@@ -308,6 +318,12 @@ void Administrador::crearRuta()
                 if(ruta->consultarCamino(pasarChar, pasarChar1))
                 {
                     dibujarAristas(pasarChar,pasarChar1);
+                    cout<<ruta->existeCamino(pasarChar,pasarChar1)<<endl;
+                }
+                else{
+                    cout<<"Esta ruta No EXISTE!"<<endl;
+                    cout<<ruta->existeCamino(pasarChar,pasarChar1)<<endl;
+                    //Working Here
                 }
                 nombre_punto.clear();
                 nombre_destino.clear();
@@ -387,6 +403,157 @@ void Administrador::crearRuta()
         window1.draw(txt_puntos4);
         window1.draw(back_btnSalir);
         window1.draw(back_btnCrear);
+        window1.display();
+    }
+}
+
+void Administrador::ventanaConsultarCaminos()
+{
+    bool controlar_inputs = true, controlar_msj1 = false, controlar_msj2 = false;
+    char* cadena1;
+    char* cadena2;
+    sf::RenderWindow window1;
+    sf::Vector2f mouse1;
+    sf::Text txt_texto1, txt_texto2;
+    sf::Font fuente;
+    sf::String texto1, texto2;
+    string pasarTexto1, pasarTexto2;
+    sf::Texture text_fondo, text_ingreso2, text_btnConsultar, text_btnSalir, text_borrar1, text_borrar2, text_msjCamino,
+    text_btnAceptar;
+    sf::Sprite back_fondo, back_ingreso2, back_btnConsultar, back_btnSalir, back_borrar1, back_borrar2, back_msjCamino,
+    back_btnAceptar;
+
+    window1.create(sf::VideoMode(400,300),"Consultar Caminos");
+    window1.setVerticalSyncEnabled(true);
+
+    fuente.loadFromFile("arial.ttf");
+
+    txt_texto1.setFont(fuente);
+    txt_texto1.setCharacterSize(30);
+    txt_texto1.setColor(sf::Color::Black);
+    txt_texto1.setStyle(sf::Text::Bold);
+    txt_texto1.setPosition(40,60);
+
+    txt_texto2.setFont(fuente);
+    txt_texto2.setCharacterSize(30);
+    txt_texto2.setColor(sf::Color::Black);
+    txt_texto2.setStyle(sf::Text::Bold);
+    txt_texto2.setPosition(40,145);
+
+    text_fondo.loadFromFile("back_consultarCamino.png");
+    back_fondo.setTexture(text_fondo);
+
+    text_ingreso2.loadFromFile("botones/back_ingreso2.png");
+    back_ingreso2.setTexture(text_ingreso2);
+    back_ingreso2.setPosition(30,140);
+
+    text_btnConsultar.loadFromFile("botones/consulta.png");
+    back_btnConsultar.setTexture(text_btnConsultar);
+    back_btnConsultar.setPosition(30,220);
+
+    text_btnSalir.loadFromFile("botones/salir_ventanaConsulta.png");
+    back_btnSalir.setTexture(text_btnSalir);
+    back_btnSalir.setPosition(200,220);
+
+    text_borrar1.loadFromFile("botones/erase.png");
+    back_borrar1.setTexture(text_borrar1);
+    back_borrar1.setPosition(320,55);
+
+    text_borrar2.loadFromFile("botones/erase.png");
+    back_borrar2.setTexture(text_borrar2);
+    back_borrar2.setPosition(320,140);
+
+    while(window1.isOpen())
+    {
+        sf::Event event;
+        while(window1.pollEvent(event))
+        {
+            mouse1 = window1.mapPixelToCoords(sf::Mouse::getPosition(window1));
+
+            if(event.type == sf::Event::TextEntered)
+            {
+                if(controlar_inputs)
+                {
+                    texto1.insert(texto1.getSize(),event.text.unicode);
+                    txt_texto1.setString(texto1);
+
+                    pasarTexto1 = texto1;
+                    cadena1 = new char[pasarTexto1.size()+1];
+                    copy(pasarTexto1.begin(),pasarTexto1.end(),cadena1);
+                    cadena1[pasarTexto1.size()] = '\0';
+                }
+                else{
+                    texto2.insert(texto2.getSize(),event.text.unicode);
+                    txt_texto2.setString(texto2);
+
+                    pasarTexto2 = texto2;
+                    cadena2 = new char[pasarTexto2.size()+1];
+                    copy(pasarTexto2.begin(),pasarTexto2.end(),cadena2);
+                    cadena2[pasarTexto2.size()] = '\0';
+                }
+            }
+
+            if(utility->clickSprite(back_btnConsultar,mouse1))
+            {
+                text_btnAceptar.loadFromFile("botones/btnAceptar.png");
+                back_btnAceptar.setTexture(text_btnAceptar);
+                back_btnAceptar.setPosition(120,140);
+
+                if(ruta->existeCamino(cadena1,cadena2))
+                {
+                    text_msjCamino.loadFromFile("si_camino.png");
+                    controlar_msj1 = true;
+                    controlar_inputs = true;
+                }
+                else{
+                    text_msjCamino.loadFromFile("no_camino.png");
+                    controlar_msj2 = true;
+                    controlar_inputs = true;
+                }
+                back_msjCamino.setTexture(text_msjCamino);
+                back_msjCamino.setPosition(40,30);
+            }
+
+            if(utility->clickSprite(back_ingreso2,mouse1))
+            {
+                controlar_inputs = false;
+            }
+
+            if(utility->clickSprite(back_borrar1,mouse1))
+            {
+                texto1.clear();
+                txt_texto1.setString("");
+            }
+
+            if(utility->clickSprite(back_borrar2,mouse1))
+            {
+                texto2.clear();
+                txt_texto2.setString("");
+            }
+
+            if(utility->clickSprite(back_btnAceptar,mouse1))
+            {
+                controlar_msj1 = false;
+                controlar_msj2 = false;
+            }
+        }
+
+        if(utility->clickSprite(back_btnSalir,mouse1))
+        {
+            window1.close();
+        }
+
+        window1.draw(back_fondo);
+        window1.draw(back_ingreso2);
+        window1.draw(back_btnConsultar);
+        window1.draw(back_btnSalir);
+        window1.draw(back_borrar1);
+        window1.draw(back_borrar2);
+        window1.draw(txt_texto1);
+        window1.draw(txt_texto2);
+        if(controlar_msj1){window1.draw(back_msjCamino);}
+        if(controlar_msj2){window1.draw(back_msjCamino);}
+        if(controlar_msj1 || controlar_msj2){window1.draw(back_btnAceptar);}
         window1.display();
     }
 }

@@ -7,53 +7,58 @@ Rutas::Rutas()
 
 void Rutas::llenarPuntos()
 {
-    puntos[0] = "sanPedro";
-    puntos[1] = "ceiba";
-    puntos[2] = "trujillo";
-    puntos[3] = "yoro";
-    puntos[4] = "olancho";
-    puntos[5] = "tegus";
-    puntos[6] = "elParaiso";
-    puntos[7] = "choluteca";
-    puntos[8] = "nacaome";
-    puntos[9] = "comayagua";
-    puntos[10] = "laEsperanza";
-    puntos[11] = "gracias";
-    puntos[12] = "santaBarbara";
-    puntos[13] = "santaRosa";
-    puntos[14] = "ocotepeque";
+    puntos[0] = "San Pedro";
+    puntos[1] = "Ceiba";
+    puntos[2] = "Trujillo";
+    puntos[3] = "Yoro";
+    puntos[4] = "Olancho";
+    puntos[5] = "Tegucigalpa";
+    puntos[6] = "El Paraiso";
+    puntos[7] = "Choluteca";
+    puntos[8] = "Nacaome";
+    puntos[9] = "Comayagua";
+    puntos[10] = "La Esperanza";
+    puntos[11] = "Gracias";
+    puntos[12] = "Santa Barbara";
+    puntos[13] = "Santa Rosa";
+    puntos[14] = "Ocotepeque";
 }
 
 void Rutas::rutasPosibles()
 {
-    nuevaAdyacencia("sanPedro","santaRosa");
-    nuevaAdyacencia("santaRosa","ocotepeque");
-    nuevaAdyacencia("ceiba","sanPedro");
-    nuevaAdyacencia("ceiba","olancho");
-    nuevaAdyacencia("comayagua","laEsperanza");
-    nuevaAdyacencia("comayagua","santaBarbara");
-    nuevaAdyacencia("comayagua","yoro");
-    nuevaAdyacencia("elParaiso","olancho");
-    nuevaAdyacencia("elParaiso","choluteca");
-    nuevaAdyacencia("gracias","laEsperanza");
-    nuevaAdyacencia("nacaome","choluteca");
-    nuevaAdyacencia("sanPedro","santaBarbara");
-    nuevaAdyacencia("sanPedro","yoro");
-    nuevaAdyacencia("santaBarbara","gracias");
-    nuevaAdyacencia("santaRosa","gracias");
-    nuevaAdyacencia("santaRosa","santaBarbara");
-    nuevaAdyacencia("tegus","comayagua");
-    nuevaAdyacencia("tegus","elParaiso");
-    nuevaAdyacencia("tegus","nacaome");
-    nuevaAdyacencia("tegus","olancho");
-    nuevaAdyacencia("trujillo","ceiba");
-    nuevaAdyacencia("yoro","ceiba");
-    nuevaAdyacencia("yoro","olancho");
+    nuevaAdyacencia("San Pedro","Santa Rosa");
+    nuevaAdyacencia("Santa Rosa","Ocotepeque");
+    nuevaAdyacencia("Ceiba","San Pedro");
+    nuevaAdyacencia("Ceiba","Olancho");
+    nuevaAdyacencia("Comayagua","La Esperanza");
+    nuevaAdyacencia("Comayagua","Santa Barbara");
+    nuevaAdyacencia("Comayagua","Yoro");
+    nuevaAdyacencia("El Paraiso","Olancho");
+    nuevaAdyacencia("El Paraiso","Choluteca");
+    nuevaAdyacencia("Gracias","La Esperanza");
+    nuevaAdyacencia("Nacaome","Choluteca");
+    nuevaAdyacencia("San Pedro","Santa Barbara");
+    nuevaAdyacencia("San Pedro","Yoro");
+    nuevaAdyacencia("Santa Barbara","Gracias");
+    nuevaAdyacencia("Santa Rosa","Gracias");
+    nuevaAdyacencia("Santa Rosa","Santa Barbara");
+    nuevaAdyacencia("Tegucigalpa","Comayagua");
+    nuevaAdyacencia("Tegucigalpa","El Paraiso");
+    nuevaAdyacencia("Tegucigalpa","Nacaome");
+    nuevaAdyacencia("Tegucigalpa","Olancho");
+    nuevaAdyacencia("Trujillo","Ceiba");
+    nuevaAdyacencia("Yoro","Ceiba");
+    nuevaAdyacencia("Yoro","Olancho");
 }
 
 bool Rutas::existeCamino(char* nombre_punto1, char* nombre_punto2)
 {
     bool visitados[15] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    if(obtenerPosicion(nombre_punto1) == -1 || obtenerPosicion(nombre_punto2) == -1)
+    {
+        return false;
+    }
 
     visitados[obtenerPosicion(nombre_punto1)] = true;
     stack<int> siguiente;
@@ -66,7 +71,7 @@ bool Rutas::existeCamino(char* nombre_punto1, char* nombre_punto2)
 
         for(int n = 0; n < 15; ++n)
         {
-            if(!visitados[n] && adyacencieas[actual][n] == true)
+            if(!visitados[n] && caminos[actual][n] == true)
             {
                 visitados[n] = true;
                 siguiente.push(n);
@@ -118,8 +123,12 @@ void Rutas::setCaminos()
 
 void Rutas::nuevoCamino(char* nombre_punto1, char* nombre_punto2)
 {
-    caminos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] = true;
-    caminos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] = true;
+    if(adyacencieas[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] &&
+       adyacencieas[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)])
+    {
+        caminos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] = true;
+        caminos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] = true;
+    }
 }
 
 bool Rutas::consultarCamino(char* nombre_punto1, char* nombre_punto2)
