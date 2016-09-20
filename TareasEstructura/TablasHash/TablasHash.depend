@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1474344539 source:c:\users\luis\desktop\tareasestructura\tablashash\main.cpp
+	<iostream>
+	"TablasHash.h"
+
+1474344808 source:c:\users\luis\desktop\tareasestructura\tablashash\tablashash.cpp
+	"TablasHash.h"
+
+1474347195 c:\users\luis\desktop\tareasestructura\tablashash\tablashash.h
+	<iostream>
+	"Item.h"
+
+1474339120 source:c:\users\luis\desktop\tareasestructura\tablashash\item.cpp
+	"Item.h"
+
+1474345311 c:\users\luis\desktop\tareasestructura\tablashash\item.h
+

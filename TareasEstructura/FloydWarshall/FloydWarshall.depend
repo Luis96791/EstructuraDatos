@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1474336727 source:c:\users\luis\desktop\tareasestructura\floydwarshall\main.cpp
+	<iostream>
+	"Grafo.h"
+
+1474337298 source:c:\users\luis\desktop\tareasestructura\floydwarshall\grafo.cpp
+	"Grafo.h"
+
+1474337188 c:\users\luis\desktop\tareasestructura\floydwarshall\grafo.h
+	<iostream>
+	<climits>
+	<stack>
+

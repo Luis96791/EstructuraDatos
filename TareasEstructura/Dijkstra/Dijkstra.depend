@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1474382204 source:c:\users\luis\desktop\tareasestructura\dijkstra\main.cpp
+	<iostream>
+	"Grafo.h"
+
+1474383376 c:\users\luis\desktop\tareasestructura\dijkstra\grafo.h
+	<climits>
+	<iostream>
+
