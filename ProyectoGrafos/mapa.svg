@@ -26,11 +26,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="-216.2758"
-     inkscape:cy="-177.13343"
+     inkscape:zoom="0.7"
+     inkscape:cx="-165.03714"
+     inkscape:cy="600.60471"
      inkscape:document-units="px"
-     inkscape:current-layer="g4498"
+     inkscape:current-layer="g4364"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1304"
@@ -523,73 +523,6 @@
                inkscape:export-xdpi="90"
                inkscape:export-ydpi="90"
                transform="translate(30,7.1428571)">
-              <rect
-                 inkscape:export-ydpi="90"
-                 inkscape:export-xdpi="90"
-                 ry="0"
-                 y="431.54703"
-                 x="1063.1768"
-                 height="500"
-                 width="600"
-                 id="rect4251"
-                 style="opacity:0.95999995;fill:#deaa87;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-              <flowRoot
-                 transform="matrix(0.8462384,0,0,1,1604.1503,311.5301)"
-                 style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-                 id="flowRoot4261"
-                 xml:space="preserve"><flowRegion
-                   id="flowRegion4263"><rect
-                     y="150.29597"
-                     x="-609.12201"
-                     height="37.375637"
-                     width="244.45686"
-                     id="rect4265" /></flowRegion><flowPara
-                   id="flowPara4267">Ingrese Terminal:</flowPara></flowRoot>              <rect
-                 ry="14.31194"
-                 y="458.7847"
-                 x="1284.3893"
-                 height="44.468586"
-                 width="263.67169"
-                 id="rect4289"
-                 style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.97812843;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-              <flowRoot
-                 transform="translate(1693.2669,271.5301)"
-                 style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-                 id="flowRoot4299"
-                 xml:space="preserve"><flowRegion
-                   id="flowRegion4301"><rect
-                     y="246.64792"
-                     x="-608.57141"
-                     height="50"
-                     width="397.14285"
-                     id="rect4303" /></flowRegion><flowPara
-                   id="flowPara4305">Terminales mas cercanas:</flowPara></flowRoot>              <rect
-                 ry="17.63501"
-                 y="555.24658"
-                 x="1087.8767"
-                 height="210.14856"
-                 width="335.06595"
-                 id="rect4289-7"
-                 style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.59800005;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1" />
-              <flowRoot
-                 transform="matrix(0.8462384,0,0,1,1608.4395,626.08804)"
-                 style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-                 id="flowRoot4261-0"
-                 xml:space="preserve"><flowRegion
-                   id="flowRegion4263-5"><rect
-                     y="150.29597"
-                     x="-609.12201"
-                     height="37.375637"
-                     width="244.45686"
-                     id="rect4265-3" /></flowRegion><flowPara
-                   id="flowPara4267-1">Escoja Terminal:</flowPara></flowRoot>              <rect
-                 ry="14.31194"
-                 y="774.51514"
-                 x="1274.2881"
-                 height="44.468586"
-                 width="263.67169"
-                 id="rect4289-78"
-                 style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.97812843;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
               <g
                  id="g4430"
                  inkscape:export-xdpi="90"
@@ -805,6 +738,94 @@
                          y="1080.6465" /></flowRegion><flowPara
                        id="flowPara4380-5-5"
                        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff">Aceptar</flowPara></flowRoot>                </g>
+              </g>
+              <g
+                 id="g4364"
+                 inkscape:export-xdpi="90"
+                 inkscape:export-ydpi="90">
+                <g
+                   id="g4387"
+                   inkscape:export-xdpi="90"
+                   inkscape:export-ydpi="90">
+                  <rect
+                     inkscape:export-ydpi="90"
+                     inkscape:export-xdpi="90"
+                     ry="0"
+                     y="427.26132"
+                     x="1063.1768"
+                     height="580"
+                     width="600"
+                     id="rect4251"
+                     style="opacity:0.95999995;fill:#deaa87;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+                  <flowRoot
+                     transform="matrix(0.8462384,0,0,1,1604.1503,311.5301)"
+                     style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                     id="flowRoot4261"
+                     xml:space="preserve"><flowRegion
+                       id="flowRegion4263"><rect
+                         y="150.29597"
+                         x="-609.12201"
+                         height="37.375637"
+                         width="244.45686"
+                         id="rect4265" /></flowRegion><flowPara
+                       id="flowPara4267">Ingrese Terminal:</flowPara></flowRoot>                  <rect
+                     ry="14.31194"
+                     y="458.7847"
+                     x="1284.3893"
+                     height="44.468586"
+                     width="263.67169"
+                     id="rect4289"
+                     style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.97812843;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+                  <flowRoot
+                     transform="translate(1693.2669,271.5301)"
+                     style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                     id="flowRoot4299"
+                     xml:space="preserve"><flowRegion
+                       id="flowRegion4301"><rect
+                         y="246.64792"
+                         x="-608.57141"
+                         height="50"
+                         width="397.14285"
+                         id="rect4303" /></flowRegion><flowPara
+                       id="flowPara4305">Terminales mas cercanas:</flowPara></flowRoot>                  <rect
+                     ry="17.63501"
+                     y="555.24658"
+                     x="1087.8767"
+                     height="210.14856"
+                     width="335.06595"
+                     id="rect4289-7"
+                     style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.59800005;stroke-miterlimit:0.1;stroke-dasharray:none;stroke-opacity:1" />
+                  <flowRoot
+                     transform="matrix(0.8462384,0,0,1,1608.4395,626.08804)"
+                     style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                     id="flowRoot4261-0"
+                     xml:space="preserve"><flowRegion
+                       id="flowRegion4263-5"><rect
+                         y="150.29597"
+                         x="-609.12201"
+                         height="37.375637"
+                         width="244.45686"
+                         id="rect4265-3" /></flowRegion><flowPara
+                       id="flowPara4267-1">Escoja Terminal:</flowPara></flowRoot>                  <rect
+                     ry="14.31194"
+                     y="774.51514"
+                     x="1274.2881"
+                     height="44.468586"
+                     width="263.67169"
+                     id="rect4289-78"
+                     style="opacity:0.95999995;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000200;stroke-width:2.97812843;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+                  <flowRoot
+                     transform="matrix(0.8462384,0,0,1,1608.6392,694.65946)"
+                     style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                     id="flowRoot4261-0-6"
+                     xml:space="preserve"><flowRegion
+                       id="flowRegion4263-5-6"><rect
+                         y="150.29597"
+                         x="-609.12201"
+                         height="37.375637"
+                         width="244.45686"
+                         id="rect4265-3-6" /></flowRegion><flowPara
+                       id="flowPara4267-1-2">Valor del boleto:</flowPara></flowRoot>                </g>
               </g>
             </g>
             <g

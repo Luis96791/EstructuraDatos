@@ -25,7 +25,7 @@ void Grafo::establecerAdyacencias()
     {
         for(int c = 0; c < tamanio; c++)
         {
-            adyacencias[f][c] = false;
+            adyacencias[f][c] = INT_MAX;
         }
     }
 }
@@ -38,6 +38,14 @@ void Grafo::establecerPesos()
         {
             pesos[f][c] = INT_MAX;
         }
+    }
+}
+
+void Grafo::establecerCaminos()
+{
+    for(int c = 0; c < tamanio; c++)
+    {
+        caminos[c] = INT_MAX;
     }
 }
 
@@ -68,29 +76,38 @@ void Grafo::agregarPeso(int num1, int num2, int peso)
 //Dijkstra
 void Grafo::distanciaMinima(int num)
 {
-    int distancias[tamanio];
+    int Pminimo, Vminimo;
     bool visitados[tamanio] = {false};
 
-    for( int i = 0; i < tamanio; i++)
-    {
-        distancias[i] = INT_MAX;
-    }
-
-    distancias[num] = 0;
-
-}
-
-int Grafo::distanciaMinima(bool visitados[])
-{
-    int minino = INT_MIN;
-    int temp;
+    visitados[num] = true;
 
     for(int s = 0; s < tamanio; s++)
     {
-        if(!visitados[s] && numeros[s] <= minino)
-        {
+        Pminimo = 1;
+        Vminimo = INT_MAX;
 
+        for(int j = 0; j < tamanio; j++)
+        {
+            if(Vminimo > caminos[j])
+            {
+                Vminimo = caminos[j];
+                Pminimo = j;
+            }
         }
+    }
+    visitados[Pminimo] = true;
+
+    for(int k = 0; k < tamanio; k++)
+    {
+        relajar(caminos, k, Pminimo);
+    }
+}
+
+void Grafo::relajar(int caminos[], int k, int p)
+{
+    if(caminos[k] > (caminos[p]+adyacencias[p][k]))
+    {
+        caminos[k] = caminos[p]+adyacencias[p][k];
     }
 }
 

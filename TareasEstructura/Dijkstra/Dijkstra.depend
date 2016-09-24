@@ -7,3 +7,14 @@
 	<climits>
 	<iostream>
 
+1474382204 source:c:\users\luis\desktop\estructura\tareasestructura\dijkstra\main.cpp
+	<iostream>
+	"Grafo.h"
+
+1474410240 c:\users\luis\desktop\estructura\tareasestructura\dijkstra\grafo.h
+	<climits>
+	<iostream>
+
+1474410337 source:c:\users\luis\desktop\estructura\tareasestructura\dijkstra\grafo.cpp
+	"Grafo.h"
+

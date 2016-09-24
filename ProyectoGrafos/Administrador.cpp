@@ -221,18 +221,19 @@ void Administrador::crearRuta()
 {
     char* pasarChar;
     char* pasarChar1;
-    bool controlarIngreso = true;
+    int pasarPeso;
+    bool controlarIngreso = true, ingresarPeso = false;
     sf::RenderWindow window1;
     sf::Font fuente;
     sf::Vector2f mouse1;
 
-    sf::Texture text_fondo, text_btnSalir, text_btnCrear, text_btnBuscar, text_btnBorrar,text_btnBorrar2;
-    sf::Sprite back_fondo, back_btnSalir, back_btnCrear, back_btnBuscar, back_btnBorrar,back_btnBorrar2;
-    sf::Text txt_punto, txt_destino, txt_puntos1, txt_puntos2, txt_puntos3, txt_puntos4;
-    sf::String nombre_punto, nombre_destino;
-    string pasarString, pasarString1;
+    sf::Texture text_fondo, text_btnSalir, text_btnCrear, text_btnBuscar, text_btnBorrar,text_btnBorrar2, text_barraPeso;
+    sf::Sprite back_fondo, back_btnSalir, back_btnCrear, back_btnBuscar, back_btnBorrar,back_btnBorrar2, back_barraPeso;
+    sf::Text txt_punto, txt_destino, txt_puntos1, txt_puntos2, txt_puntos3, txt_puntos4, txt_valorBoleto;
+    sf::String nombre_punto, nombre_destino, peso;
+    string pasarString, pasarString1, pasarString3;
 
-    window1.create(sf::VideoMode(600,500),"Crear Ruta");
+    window1.create(sf::VideoMode(600,580),"Crear Ruta");
     window1.setPosition(sf::Vector2i(150,150));
     window1.setVisible(true);
 
@@ -242,13 +243,13 @@ void Administrador::crearRuta()
     txt_punto.setCharacterSize(30);
     txt_punto.setColor(sf::Color::Black);
     txt_punto.setStyle(sf::Text::Bold);
-    txt_punto.setPosition(240,30);
+    txt_punto.setPosition(240,35);
 
     txt_destino.setFont(fuente);
     txt_destino.setCharacterSize(30);
     txt_destino.setColor(sf::Color::Black);
     txt_destino.setStyle(sf::Text::Bold);
-    txt_destino.setPosition(230,345);
+    txt_destino.setPosition(230,350);
 
     txt_puntos1.setFont(fuente);
     txt_puntos1.setCharacterSize(30);
@@ -274,16 +275,22 @@ void Administrador::crearRuta()
     txt_puntos4.setStyle(sf::Text::Bold);
     txt_puntos4.setPosition(40,220);
 
+    txt_valorBoleto.setFont(fuente);
+    txt_valorBoleto.setCharacterSize(30);
+    txt_valorBoleto.setColor(sf::Color::Black);
+    txt_valorBoleto.setStyle(sf::Text::Bold);
+    txt_valorBoleto.setPosition(240,420);
+
     text_fondo.loadFromFile("back_crearRuta.png");
     back_fondo.setTexture(text_fondo);
 
     text_btnSalir.loadFromFile("botones/salir.png");
     back_btnSalir.setTexture(text_btnSalir);
-    back_btnSalir.setPosition(450,420);
+    back_btnSalir.setPosition(450,500);
 
     text_btnCrear.loadFromFile("botones/crear_ruta.png");
     back_btnCrear.setTexture(text_btnCrear);
-    back_btnCrear.setPosition(250,420);
+    back_btnCrear.setPosition(250,500);
 
     text_btnBuscar.loadFromFile("botones/buscar.png");
     back_btnBuscar.setTexture(text_btnBuscar);
@@ -296,6 +303,10 @@ void Administrador::crearRuta()
     text_btnBorrar2.loadFromFile("botones/erase.png");
     back_btnBorrar2.setTexture(text_btnBorrar2);
     back_btnBorrar2.setPosition(500,340);
+
+    text_barraPeso.loadFromFile("botones/back_ingreso2.png");
+    back_barraPeso.setTexture(text_barraPeso);
+    back_barraPeso.setPosition(210,410);
 
     while(window1.isOpen())
     {
@@ -314,6 +325,7 @@ void Administrador::crearRuta()
             {
                 ruta->reestablecerCaminosDirectos();
                 ruta->nuevoCamino(pasarChar, pasarChar1);
+                ruta->agregarPeso(pasarChar, pasarChar1, pasarPeso);
 
                 if(ruta->consultarCamino(pasarChar, pasarChar1))
                 {
@@ -327,13 +339,27 @@ void Administrador::crearRuta()
                 }
                 nombre_punto.clear();
                 nombre_destino.clear();
+                peso.clear();
                 txt_punto.setString("");
                 txt_destino.setString("");
                 txt_puntos1.setString("");
                 txt_puntos2.setString("");
                 txt_puntos3.setString("");
                 txt_puntos4.setString("");
+                txt_valorBoleto.setString("");
                 controlarIngreso = true;
+                ingresarPeso = false;
+            }
+
+            if(ingresarPeso)
+            {
+                if(event.type == sf::Event::TextEntered)
+                {
+                    peso.insert(peso.getSize(),event.text.unicode);
+                    txt_valorBoleto.setString(peso);
+                    pasarString3 = peso;
+                    pasarPeso = atoi(pasarString3.c_str());
+                }
             }
 
             if(controlarIngreso)
@@ -349,7 +375,7 @@ void Administrador::crearRuta()
                 }
             }
 
-            if(!controlarIngreso)
+            if(!controlarIngreso && !ingresarPeso)
             {
                 if(event.type == sf::Event::TextEntered)
                 {
@@ -391,16 +417,24 @@ void Administrador::crearRuta()
             txt_destino.setString("");
         }
 
+        if(utility->clickSprite(back_barraPeso, mouse1))
+        {
+            ingresarPeso = true;
+            controlarIngreso = false;
+        }
+
         window1.draw(back_fondo);
         window1.draw(back_btnBuscar);
         window1.draw(back_btnBorrar);
         window1.draw(back_btnBorrar2);
+        window1.draw(back_barraPeso);
         window1.draw(txt_punto);
         window1.draw(txt_destino);
         window1.draw(txt_puntos1);
         window1.draw(txt_puntos2);
         window1.draw(txt_puntos3);
         window1.draw(txt_puntos4);
+        window1.draw(txt_valorBoleto);
         window1.draw(back_btnSalir);
         window1.draw(back_btnCrear);
         window1.display();
@@ -564,7 +598,7 @@ void Administrador::imprimeCaminos()
     {
         for(int k = 0; k < 15; k++)
         {
-            cout<<ruta->caminos[j][k]<<" , ";
+            cout<<ruta->pesos[j][k]<<" , ";
         }
         cout<<endl<<endl;
     }

@@ -17,12 +17,15 @@ class Rutas
         char* caminoDirecto[5];
         bool adyacencieas[_size][_size];
         bool caminos[_size][_size];
+        int pesos[_size][_size];
         Rutas();
         void llenarPuntos();
         void setAdyacencias();
         void setCaminos();
+        void setPesos();
         void nuevaAdyacencia(char* nombre_punto1, char* nombre_punto2);
         void nuevoCamino(char* nombre_punto1, char* nombre_punto2);
+        void agregarPeso(char* nombre_punto1, char* nombre_punto2, int peso);
         bool consultarCamino(char* nombre_punto1, char* nombre_punto2);
         int obtenerPosicion(char* nombre_punto);
         char* obtenerPunto(int posicion);

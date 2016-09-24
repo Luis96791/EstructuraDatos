@@ -121,6 +121,23 @@ void Rutas::setCaminos()
     }
 }
 
+void Rutas::setPesos()
+{
+    for(int f = 0; f < _size; f++)
+    {
+        for(int c = 0; c < _size; c++)
+        {
+            pesos[f][c] = INT_MAX;
+        }
+    }
+}
+
+void Rutas::agregarPeso(char* nombre_punto1, char* nombre_punto2, int peso)
+{
+    pesos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] = peso;
+    pesos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] = peso;
+}
+
 void Rutas::nuevoCamino(char* nombre_punto1, char* nombre_punto2)
 {
     if(adyacencieas[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] &&
