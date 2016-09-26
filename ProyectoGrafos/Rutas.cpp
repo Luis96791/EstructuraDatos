@@ -68,7 +68,6 @@ bool Rutas::existeCamino(char* nombre_punto1, char* nombre_punto2)
     {
         int actual = siguiente.top();
         siguiente.pop();
-
         for(int n = 0; n < 15; ++n)
         {
             if(!visitados[n] && caminos[actual][n] == true)
@@ -127,15 +126,19 @@ void Rutas::setPesos()
     {
         for(int c = 0; c < _size; c++)
         {
-            pesos[f][c] = INT_MAX;
+            pesos[f][c] = 9999;
         }
     }
 }
 
 void Rutas::agregarPeso(char* nombre_punto1, char* nombre_punto2, int peso)
 {
-    pesos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] = peso;
-    pesos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] = peso;
+    if(adyacencieas[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] &&
+       adyacencieas[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)])
+    {
+        pesos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] = peso;
+        pesos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] = peso;
+    }
 }
 
 void Rutas::nuevoCamino(char* nombre_punto1, char* nombre_punto2)
@@ -158,6 +161,26 @@ bool Rutas::consultarCamino(char* nombre_punto1, char* nombre_punto2)
     return false;
 }
 
+void Rutas::eliminarCamino(char* nombre_punto1, char* nombre_punto2)
+{
+    if(caminos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] &&
+       caminos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)])
+   {
+        caminos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] = false;
+        caminos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] = false;
+   }
+}
+
+void Rutas::eliminarPeso(char* nombre_punto1, char* nombre_punto2)
+{
+    if(pesos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] < 9999 &&
+       pesos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] < 9999)
+   {
+        pesos[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)] = 9999;
+        pesos[obtenerPosicion(nombre_punto2)][obtenerPosicion(nombre_punto1)] = 9999;
+   }
+}
+
 void Rutas::obtenerCaminosDirectos(char* nombre_punto1)
 {
     int posicion = obtenerPosicion(nombre_punto1);
@@ -176,6 +199,31 @@ void Rutas::obtenerCaminosDirectos(char* nombre_punto1)
             }
         }
     }
+}
+
+int Rutas::caminoMinimo(char* nombre_punto1, char* nombre_punto2)
+{
+
+	for (int i = 0; i < _size; i++) {
+		for (int j = 0; j < _size; j++) {
+			distancias[i][j] = pesos[i][j];
+		}
+	}
+
+    for(int a = 0; a < _size; a++)
+    {
+        for(int b = 0; b < _size; b++)
+        {
+            for(int c = 0; c < _size; c++)
+            {
+                if(distancias[b][a]+distancias[a][c] < distancias[b][c])
+                {
+                    distancias[b][c] = distancias[b][a]+distancias[a][c];
+                }
+            }
+        }
+    }
+    return distancias[obtenerPosicion(nombre_punto1)][obtenerPosicion(nombre_punto2)];
 }
 
 char* Rutas::obtenerPunto(int posicion)
@@ -201,6 +249,7 @@ Rutas::~Rutas()
 {
     delete puntos;
     delete caminoDirecto;
+    delete distancias;
     delete adyacencieas;
     delete caminos;
 }

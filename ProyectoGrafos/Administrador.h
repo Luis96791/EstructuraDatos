@@ -22,8 +22,10 @@ class Administrador
         void dibujarPuntos(sf::Texture texture[], sf::Sprite sprite[]);
         void crearRuta();
         void ventanaConsultarCaminos();
+        void ventanaEliminar();
         void imprimeCaminos();
         void dibujarAristas(char* nombre_punto1, char* nombre_punto2);
+        void ocultarAristas(char* nombre_punto1, char* nombre_punto2);
         void drawLineas();
         virtual ~Administrador();
 

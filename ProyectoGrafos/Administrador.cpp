@@ -15,8 +15,8 @@ char* prueba;
 void Administrador::ventanaPrincipal()
 {
 
-    sf::Texture text_fondo, txt_lateral, txt_nuevaRuta, text_consultar;
-    sf::Sprite back_fondo, back_lateral, back_nuevaRuta, back_consultar;
+    sf::Texture text_fondo, txt_lateral, txt_nuevaRuta, text_consultar, text_eliminar, text_salir;
+    sf::Sprite back_fondo, back_lateral, back_nuevaRuta, back_consultar, back_eliminar, back_salir;
 
     sf::Texture txt_puntos[23];
     sf::Sprite back_puntos[23];
@@ -39,9 +39,18 @@ void Administrador::ventanaPrincipal()
     back_consultar.setTexture(text_consultar);
     back_consultar.setPosition(1105,130);
 
+    text_eliminar.loadFromFile("botones/eliminar_ruta.png");
+    back_eliminar.setTexture(text_eliminar);
+    back_eliminar.setPosition(1105,200);
+
+    text_salir.loadFromFile("botones/btnSalir.png");
+    back_salir.setTexture(text_salir);
+    back_salir.setPosition(1105,270);
+
     ruta->llenarPuntos();
     ruta->setAdyacencias();
     ruta->setCaminos();
+    ruta->setPesos();
     ruta->rutasPosibles();
 
     while(window.isOpen())
@@ -50,15 +59,6 @@ void Administrador::ventanaPrincipal()
         while(window.pollEvent(event))
         {
             mouse = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-
-            if(event.type == sf::Event::Closed)
-            {
-                window.close();
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-            {
-                window.close();
-            }
         }
 
         if(utility->clickSprite(back_nuevaRuta,mouse))
@@ -71,10 +71,22 @@ void Administrador::ventanaPrincipal()
             ventanaConsultarCaminos();
         }
 
+        if(utility->clickSprite(back_eliminar,mouse))
+        {
+            ventanaEliminar();
+        }
+
+        if(utility->clickSprite(back_salir,mouse))
+        {
+            window.close();
+        }
+
         window.draw(back_fondo);
         window.draw(back_lateral);
         window.draw(back_nuevaRuta);
         window.draw(back_consultar);
+        window.draw(back_eliminar);
+        window.draw(back_salir);
         dibujarPuntos(txt_puntos, back_puntos);
         drawLineas();
         window.display();
@@ -222,13 +234,15 @@ void Administrador::crearRuta()
     char* pasarChar;
     char* pasarChar1;
     int pasarPeso;
-    bool controlarIngreso = true, ingresarPeso = false;
+    bool controlarIngreso = true, ingresarPeso = false, isVacio = false;
     sf::RenderWindow window1;
     sf::Font fuente;
     sf::Vector2f mouse1;
 
-    sf::Texture text_fondo, text_btnSalir, text_btnCrear, text_btnBuscar, text_btnBorrar,text_btnBorrar2, text_barraPeso;
-    sf::Sprite back_fondo, back_btnSalir, back_btnCrear, back_btnBuscar, back_btnBorrar,back_btnBorrar2, back_barraPeso;
+    sf::Texture text_fondo, text_btnSalir, text_btnCrear, text_btnBuscar, text_btnBorrar,text_btnBorrar2,
+        text_barraPeso, text_vacios, text_btnVacios;
+    sf::Sprite back_fondo, back_btnSalir, back_btnCrear, back_btnBuscar, back_btnBorrar,back_btnBorrar2,
+        back_barraPeso, back_vacios, back_btnVacios;
     sf::Text txt_punto, txt_destino, txt_puntos1, txt_puntos2, txt_puntos3, txt_puntos4, txt_valorBoleto;
     sf::String nombre_punto, nombre_destino, peso;
     string pasarString, pasarString1, pasarString3;
@@ -279,7 +293,7 @@ void Administrador::crearRuta()
     txt_valorBoleto.setCharacterSize(30);
     txt_valorBoleto.setColor(sf::Color::Black);
     txt_valorBoleto.setStyle(sf::Text::Bold);
-    txt_valorBoleto.setPosition(240,420);
+    txt_valorBoleto.setPosition(240,415);
 
     text_fondo.loadFromFile("back_crearRuta.png");
     back_fondo.setTexture(text_fondo);
@@ -308,6 +322,14 @@ void Administrador::crearRuta()
     back_barraPeso.setTexture(text_barraPeso);
     back_barraPeso.setPosition(210,410);
 
+    text_vacios.loadFromFile("campos_vacios.png");
+    back_vacios.setTexture(text_vacios);
+    back_vacios.setPosition(200,200);
+
+    text_btnVacios.loadFromFile("botones/btnAceptar.png");
+    back_btnVacios.setTexture(text_btnVacios);
+    back_btnVacios.setPosition(280,305);
+
     while(window1.isOpen())
     {
         sf::Event event;
@@ -324,8 +346,26 @@ void Administrador::crearRuta()
             if(utility->clickSprite(back_btnCrear,mouse1))
             {
                 ruta->reestablecerCaminosDirectos();
-                ruta->nuevoCamino(pasarChar, pasarChar1);
-                ruta->agregarPeso(pasarChar, pasarChar1, pasarPeso);
+                if(txt_punto.getString()=="" || txt_destino.getString()=="" || txt_valorBoleto.getString() == "")
+                {
+                    isVacio = true;
+                }
+                else{
+                    ruta->nuevoCamino(pasarChar, pasarChar1);
+                    ruta->agregarPeso(pasarChar, pasarChar1, pasarPeso);
+                    nombre_punto.clear();
+                    nombre_destino.clear();
+                    peso.clear();
+                    txt_punto.setString("");
+                    txt_destino.setString("");
+                    txt_puntos1.setString("");
+                    txt_puntos2.setString("");
+                    txt_puntos3.setString("");
+                    txt_puntos4.setString("");
+                    txt_valorBoleto.setString("");
+                    controlarIngreso = true;
+                    ingresarPeso = false;
+                }
 
                 if(ruta->consultarCamino(pasarChar, pasarChar1))
                 {
@@ -337,18 +377,6 @@ void Administrador::crearRuta()
                     cout<<ruta->existeCamino(pasarChar,pasarChar1)<<endl;
                     //Working Here
                 }
-                nombre_punto.clear();
-                nombre_destino.clear();
-                peso.clear();
-                txt_punto.setString("");
-                txt_destino.setString("");
-                txt_puntos1.setString("");
-                txt_puntos2.setString("");
-                txt_puntos3.setString("");
-                txt_puntos4.setString("");
-                txt_valorBoleto.setString("");
-                controlarIngreso = true;
-                ingresarPeso = false;
             }
 
             if(ingresarPeso)
@@ -374,6 +402,8 @@ void Administrador::crearRuta()
                     pasarChar[pasarString.size()] = '\0';
                 }
             }
+
+            if(utility->clickSprite(back_btnVacios,mouse1)){isVacio = false;}
 
             if(!controlarIngreso && !ingresarPeso)
             {
@@ -437,6 +467,7 @@ void Administrador::crearRuta()
         window1.draw(txt_valorBoleto);
         window1.draw(back_btnSalir);
         window1.draw(back_btnCrear);
+        if(isVacio){window1.draw(back_vacios);window1.draw(back_btnVacios);}
         window1.display();
     }
 }
@@ -448,16 +479,16 @@ void Administrador::ventanaConsultarCaminos()
     char* cadena2;
     sf::RenderWindow window1;
     sf::Vector2f mouse1;
-    sf::Text txt_texto1, txt_texto2;
+    sf::Text txt_texto1, txt_texto2, txt_getPeso;
     sf::Font fuente;
     sf::String texto1, texto2;
     string pasarTexto1, pasarTexto2;
     sf::Texture text_fondo, text_ingreso2, text_btnConsultar, text_btnSalir, text_borrar1, text_borrar2, text_msjCamino,
-    text_btnAceptar;
+        text_btnAceptar;
     sf::Sprite back_fondo, back_ingreso2, back_btnConsultar, back_btnSalir, back_borrar1, back_borrar2, back_msjCamino,
-    back_btnAceptar;
+        back_btnAceptar;
 
-    window1.create(sf::VideoMode(400,300),"Consultar Caminos");
+    window1.create(sf::VideoMode(400,400),"Consultar Caminos");
     window1.setVerticalSyncEnabled(true);
 
     fuente.loadFromFile("arial.ttf");
@@ -474,6 +505,12 @@ void Administrador::ventanaConsultarCaminos()
     txt_texto2.setStyle(sf::Text::Bold);
     txt_texto2.setPosition(40,145);
 
+    txt_getPeso.setFont(fuente);
+    txt_getPeso.setCharacterSize(30);
+    txt_getPeso.setColor(sf::Color::Black);
+    txt_getPeso.setStyle(sf::Text::Bold);
+    txt_getPeso.setPosition(110,230);
+
     text_fondo.loadFromFile("back_consultarCamino.png");
     back_fondo.setTexture(text_fondo);
 
@@ -483,11 +520,11 @@ void Administrador::ventanaConsultarCaminos()
 
     text_btnConsultar.loadFromFile("botones/consulta.png");
     back_btnConsultar.setTexture(text_btnConsultar);
-    back_btnConsultar.setPosition(30,220);
+    back_btnConsultar.setPosition(30,320);
 
     text_btnSalir.loadFromFile("botones/salir_ventanaConsulta.png");
     back_btnSalir.setTexture(text_btnSalir);
-    back_btnSalir.setPosition(200,220);
+    back_btnSalir.setPosition(200,320);
 
     text_borrar1.loadFromFile("botones/erase.png");
     back_borrar1.setTexture(text_borrar1);
@@ -533,19 +570,22 @@ void Administrador::ventanaConsultarCaminos()
                 back_btnAceptar.setTexture(text_btnAceptar);
                 back_btnAceptar.setPosition(120,140);
 
-                if(ruta->existeCamino(cadena1,cadena2))
+                if(!ruta->existeCamino(cadena1,cadena2))
                 {
-                    text_msjCamino.loadFromFile("si_camino.png");
-                    controlar_msj1 = true;
-                    controlar_inputs = true;
-                }
-                else{
                     text_msjCamino.loadFromFile("no_camino.png");
                     controlar_msj2 = true;
                     controlar_inputs = true;
                 }
                 back_msjCamino.setTexture(text_msjCamino);
                 back_msjCamino.setPosition(40,30);
+
+                if(ruta->caminoMinimo(cadena1, cadena2)==9999)
+                {
+                    txt_getPeso.setString(utility->toString(0));
+                }
+                else{
+                    txt_getPeso.setString(utility->toString(ruta->caminoMinimo(cadena1, cadena2)));
+                }
             }
 
             if(utility->clickSprite(back_ingreso2,mouse1))
@@ -585,9 +625,115 @@ void Administrador::ventanaConsultarCaminos()
         window1.draw(back_borrar2);
         window1.draw(txt_texto1);
         window1.draw(txt_texto2);
+        window1.draw(txt_getPeso);
         if(controlar_msj1){window1.draw(back_msjCamino);}
         if(controlar_msj2){window1.draw(back_msjCamino);}
         if(controlar_msj1 || controlar_msj2){window1.draw(back_btnAceptar);}
+        window1.display();
+    }
+}
+
+void Administrador::ventanaEliminar()
+{
+    bool controlarInput = false;
+    char* cadena1;
+    char* cadena2;
+    string pasarTexto1, pasarTexto2;
+    sf::RenderWindow window1;
+    sf::Vector2f mouse1;
+    sf::Texture text_fondo, text_ingreso2, text_eliminar, text_salir;
+    sf::Sprite back_fondo, back_ingreso2, back_eliminar, back_salir;
+    sf::Text txt_ingreso1, txt_ingreso2;
+    sf::String texto1, texto2;
+    sf::Font fondo;
+
+    window1.create(sf::VideoMode(400,400),"Eliminar Rutas");
+
+    fondo.loadFromFile("arial.ttf");
+
+    text_fondo.loadFromFile("back_eliminarCamino.png");
+    back_fondo.setTexture(text_fondo);
+
+    text_ingreso2.loadFromFile("botones/back_ingreso2.png");
+    back_ingreso2.setTexture(text_ingreso2);
+    back_ingreso2.setPosition(50,180);
+
+    text_eliminar.loadFromFile("botones/eliminar.png");
+    back_eliminar.setTexture(text_eliminar);
+    back_eliminar.setPosition(30,240);
+
+    text_salir.loadFromFile("botones/salir_ventanaConsulta.png");
+    back_salir.setTexture(text_salir);
+    back_salir.setPosition(200,240);
+
+    txt_ingreso1.setFont(fondo);
+    txt_ingreso1.setCharacterSize(30);
+    txt_ingreso1.setStyle(sf::Text::Bold);
+    txt_ingreso1.setColor(sf::Color::Black);
+    txt_ingreso1.setPosition(70,75);
+
+    txt_ingreso2.setFont(fondo);
+    txt_ingreso2.setCharacterSize(30);
+    txt_ingreso2.setStyle(sf::Text::Bold);
+    txt_ingreso2.setColor(sf::Color::Black);
+    txt_ingreso2.setPosition(70,185);
+
+    while(window1.isOpen())
+    {
+        sf::Event event;
+        while(window1.pollEvent(event))
+        {
+            mouse1 = window1.mapPixelToCoords(sf::Mouse::getPosition(window1));
+
+            if(utility->clickSprite(back_salir,mouse1))
+            {
+                window1.close();
+            }
+
+            if(event.type == sf::Event::TextEntered)
+            {
+                if(!controlarInput)
+                {
+                    texto1.insert(texto1.getSize(),event.text.unicode);
+                    txt_ingreso1.setString(texto1);
+
+                    pasarTexto1 = texto1;
+                    cadena1 = new char[pasarTexto1.size()+1];
+                    copy(pasarTexto1.begin(),pasarTexto1.end(),cadena1);
+                    cadena1[pasarTexto1.size()] = '\0';
+                }else{
+                    texto2.insert(texto2.getSize(),event.text.unicode);
+                    txt_ingreso2.setString(texto2);
+
+                    pasarTexto2 = texto2;
+                    cadena2 = new char[pasarTexto2.size()+1];
+                    copy(pasarTexto2.begin(),pasarTexto2.end(),cadena2);
+                    cadena2[pasarTexto2.size()] = '\0';
+                }
+            }
+
+            if(utility->clickSprite(back_ingreso2,mouse1))
+            {
+                controlarInput = true;
+            }
+
+            if(utility->clickSprite(back_eliminar,mouse1))
+            {
+                ruta->eliminarCamino(cadena1,cadena2);
+                ruta->eliminarPeso(cadena1,cadena2);
+                ocultarAristas(cadena1, cadena2);
+                texto1.clear();
+                texto2.clear();
+                txt_ingreso1.setString("");
+                txt_ingreso2.setString("");
+            }
+        }
+        window1.draw(back_fondo);
+        window1.draw(back_ingreso2);
+        window1.draw(back_eliminar);
+        window1.draw(back_salir);
+        window1.draw(txt_ingreso1);
+        window1.draw(txt_ingreso2);
         window1.display();
     }
 }
@@ -811,6 +957,147 @@ void Administrador::dibujarAristas(char* nombre_punto1, char* nombre_punto2)
         back_aristas[22].setTexture(text_aristas[22]);
         back_aristas[22].setPosition(415,245);
         mostrarAristas[22] = true;
+    }
+}
+
+void Administrador::ocultarAristas(char* nombre_punto1, char* nombre_punto2)
+{
+    if((utility->compareTo(nombre_punto1,ruta->puntos[0]) && utility->compareTo(nombre_punto2,ruta->puntos[13]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[13]) && utility->compareTo(nombre_punto2,ruta->puntos[0])))
+    {
+        mostrarAristas[0] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[13]) && utility->compareTo(nombre_punto2,ruta->puntos[14]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[14]) && utility->compareTo(nombre_punto2,ruta->puntos[13])))
+    {
+        mostrarAristas[1] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[1]) && utility->compareTo(nombre_punto2,ruta->puntos[0]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[0]) && utility->compareTo(nombre_punto2,ruta->puntos[1])))
+    {
+        mostrarAristas[2] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[1]) && utility->compareTo(nombre_punto2,ruta->puntos[4]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[4]) && utility->compareTo(nombre_punto2,ruta->puntos[1])))
+    {
+        mostrarAristas[3] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[9]) && utility->compareTo(nombre_punto2,ruta->puntos[10]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[10]) && utility->compareTo(nombre_punto2,ruta->puntos[9])))
+    {
+        mostrarAristas[4] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[9]) && utility->compareTo(nombre_punto2,ruta->puntos[12]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[12]) && utility->compareTo(nombre_punto2,ruta->puntos[9])))
+    {
+        mostrarAristas[5] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[9]) && utility->compareTo(nombre_punto2,ruta->puntos[3]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[3]) && utility->compareTo(nombre_punto2,ruta->puntos[9])))
+    {
+        mostrarAristas[6] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[6]) && utility->compareTo(nombre_punto2,ruta->puntos[4]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[4]) && utility->compareTo(nombre_punto2,ruta->puntos[6])))
+    {
+        mostrarAristas[7] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[6]) && utility->compareTo(nombre_punto2,ruta->puntos[7]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[7]) && utility->compareTo(nombre_punto2,ruta->puntos[6])))
+    {
+        mostrarAristas[8] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[11]) && utility->compareTo(nombre_punto2,ruta->puntos[10]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[10]) && utility->compareTo(nombre_punto2,ruta->puntos[11])))
+    {
+        mostrarAristas[9] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[8]) && utility->compareTo(nombre_punto2,ruta->puntos[7]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[7]) && utility->compareTo(nombre_punto2,ruta->puntos[8])))
+    {
+        mostrarAristas[10] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[0]) && utility->compareTo(nombre_punto2,ruta->puntos[12]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[12]) && utility->compareTo(nombre_punto2,ruta->puntos[0])))
+    {
+        mostrarAristas[11] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[0]) && utility->compareTo(nombre_punto2,ruta->puntos[3]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[3]) && utility->compareTo(nombre_punto2,ruta->puntos[0])))
+    {
+        mostrarAristas[12] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[12]) && utility->compareTo(nombre_punto2,ruta->puntos[11]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[11]) && utility->compareTo(nombre_punto2,ruta->puntos[12])))
+    {
+        mostrarAristas[13] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[13]) && utility->compareTo(nombre_punto2,ruta->puntos[11]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[11]) && utility->compareTo(nombre_punto2,ruta->puntos[13])))
+    {
+        mostrarAristas[14] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[13]) && utility->compareTo(nombre_punto2,ruta->puntos[12]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[12]) && utility->compareTo(nombre_punto2,ruta->puntos[13])))
+    {
+        mostrarAristas[15] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[5]) && utility->compareTo(nombre_punto2,ruta->puntos[9]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[9]) && utility->compareTo(nombre_punto2,ruta->puntos[5])))
+    {
+        mostrarAristas[16] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[5]) && utility->compareTo(nombre_punto2,ruta->puntos[6]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[6]) && utility->compareTo(nombre_punto2,ruta->puntos[5])))
+    {
+        mostrarAristas[17] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[5]) && utility->compareTo(nombre_punto2,ruta->puntos[8]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[8]) && utility->compareTo(nombre_punto2,ruta->puntos[5])))
+    {
+        mostrarAristas[18] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[5]) && utility->compareTo(nombre_punto2,ruta->puntos[4]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[4]) && utility->compareTo(nombre_punto2,ruta->puntos[5])))
+    {
+        mostrarAristas[19] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[2]) && utility->compareTo(nombre_punto2,ruta->puntos[1]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[1]) && utility->compareTo(nombre_punto2,ruta->puntos[2])))
+    {
+        mostrarAristas[20] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[3]) && utility->compareTo(nombre_punto2,ruta->puntos[1]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[1]) && utility->compareTo(nombre_punto2,ruta->puntos[3])))
+    {
+        mostrarAristas[21] = false;
+    }
+
+    if((utility->compareTo(nombre_punto1,ruta->puntos[3]) && utility->compareTo(nombre_punto2,ruta->puntos[4]))
+       || (utility->compareTo(nombre_punto1,ruta->puntos[4]) && utility->compareTo(nombre_punto2,ruta->puntos[3])))
+    {
+        mostrarAristas[22] = false;
     }
 }
 

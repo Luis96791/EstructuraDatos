@@ -11,6 +11,7 @@ class Utility
         Utility();
         bool clickSprite(sf::Sprite sprite, sf::Vector2f mouse);
         bool compareTo(char* cadena1, char* cadena2);
+        string toString(int num);
         virtual ~Utility();
 
     protected:

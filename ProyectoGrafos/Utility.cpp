@@ -35,6 +35,33 @@ bool Utility::compareTo(char* cadena1, char* cadena2)
     return true;
 }
 
+string Utility::toString(int num)
+{
+    if(num == 0)
+    {
+        return "0";
+    }
+    if(num < 0)
+    {
+        return "-"+toString(-num);
+    }
+
+    string temporal = " ";
+    string returnValor = " ";
+
+    while(num > 0)
+    {
+        temporal += num % 10 + 48;
+        num /= 10;
+    }
+
+    for(int i = 0; i <(int)temporal.length(); i++)
+    {
+        returnValor += temporal[temporal.length()-i-1];
+    }
+    return returnValor;
+}
+
 Utility::~Utility()
 {
     //dtor

@@ -18,6 +18,7 @@ class Rutas
         bool adyacencieas[_size][_size];
         bool caminos[_size][_size];
         int pesos[_size][_size];
+        int distancias[_size][_size];
         Rutas();
         void llenarPuntos();
         void setAdyacencias();
@@ -26,12 +27,15 @@ class Rutas
         void nuevaAdyacencia(char* nombre_punto1, char* nombre_punto2);
         void nuevoCamino(char* nombre_punto1, char* nombre_punto2);
         void agregarPeso(char* nombre_punto1, char* nombre_punto2, int peso);
+        void eliminarCamino(char* nombre_punto1, char* nombre_punto2);
+        void eliminarPeso(char* nombre_punto1, char* nombre_punto2);
         bool consultarCamino(char* nombre_punto1, char* nombre_punto2);
         int obtenerPosicion(char* nombre_punto);
         char* obtenerPunto(int posicion);
         void rutasPosibles();
         bool existeCamino(char* nombre_punto1, char* nombre_punto2);
         void obtenerCaminosDirectos(char* nombre_punto1);
+        int caminoMinimo(char* nombre_punto1, char* nombre_punto2);
         void reestablecerCaminosDirectos();
         virtual ~Rutas();
 
